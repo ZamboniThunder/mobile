@@ -468,7 +468,8 @@ namespace Toggl.Ross.ViewControllers
             switch (startStopView.Selected)
             {
                 case TimeKind.Start:
-                    datePicker.Mode = ViewModel.IsRunning ? UIDatePickerMode.Time : UIDatePickerMode.DateAndTime;
+                    datePicker.Mode = UIDatePickerMode.DateAndTime;
+                    datePicker.MaximumDate = (NSDate)(ViewModel.IsRunning ? DateTime.Now : DateTime.Now + TimeSpan.FromDays(356));
                     if (currentValue != ViewModel.StartDate)
                     {
                         datePicker.SetDate(ViewModel.StartDate.ToNSDate(), animate);
