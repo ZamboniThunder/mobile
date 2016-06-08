@@ -118,7 +118,7 @@ namespace Toggl.Ross
             var config = Google.InstanceID.Config.DefaultConfig;
             Google.InstanceID.InstanceId.SharedInstance.Start(config);
 
-            RxChain.Send(new DataMsg.RegisterPush(deviceToken));
+            RxChain.Send(new DataMsg.RegisterPush(deviceToken.ToString()));
         }
 
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
